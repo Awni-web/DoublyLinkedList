@@ -7,6 +7,7 @@ class DoublyLinkedList {
     this.length = 0;
   }
 
+  // The push method takes a value as a parameter and assigns it as the tail of the list
   push(val) {
     const newNode = new Node(val);
 
@@ -22,6 +23,7 @@ class DoublyLinkedList {
     return this;
   }
 
+  // The pop method removes the tail of the list
   pop() {
     if (!this.tail) return undefined;
     const removedNode = this.tail;
@@ -37,6 +39,7 @@ class DoublyLinkedList {
     return removedNode;
   }
 
+  // The shift method removes the head of the list
   shift() {
     if (!this.head) return undefined;
     const removedNode = this.head;
@@ -52,6 +55,7 @@ class DoublyLinkedList {
     return removedNode;
   }
 
+  // The unshift method takes a value as a parameter and assigns it as the head of the list
   unshift(val) {
     const newNode = new Node(val);
     if (this.length === 0) {
@@ -66,6 +70,7 @@ class DoublyLinkedList {
     return this;
   }
 
+  // The get method takes an index number as a parameter and returns the value of the
   get(index) {
     if (index < 0 || index >= this.length) return null;
     let current;
@@ -84,6 +89,8 @@ class DoublyLinkedList {
     return current;
   }
 
+  // The set method takes an index number and a value as parameters,
+  //  and modifies the node value at the given index in the list
   set(index, val) {
     const node = this.get(index);
     if (node) {
@@ -93,6 +100,9 @@ class DoublyLinkedList {
     return false;
   }
 
+  // The insert method takes an index number and a value as parameters,
+  // and inserts the value at the given index in the list.
+  // It returns true on successful insert or false
   insert(index, val) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) return !!this.unshift(val);
@@ -111,6 +121,8 @@ class DoublyLinkedList {
     return true;
   }
 
+  // The remove method takes an index number as a parameter
+  // and removes the node at the given index in the list
   remove(index) {
     if (index < 0 || index >= this.length) return undefined;
     if (index === 0) return this.shift();
